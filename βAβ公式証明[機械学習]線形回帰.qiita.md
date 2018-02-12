@@ -4,7 +4,50 @@
 証明する公式:
 \frac{\partial({}^t \boldsymbol{\beta A \beta})}{\partial(\boldsymbol{\beta})} = (\boldsymbol{A} + {}^t \boldsymbol{A}) \boldsymbol{\beta} \\
 \\
-A \in \boldsymbol{R}^{(1+p) \times (1+p)}, \beta \in \boldsymbol{R}^{(1+p)}
+\boldsymbol{A} \in \boldsymbol{R}^{(1+p) \times (1+p)}, \boldsymbol{\beta} \in \boldsymbol{R}^{(1+p)}
+```
+
+## 登場シーン
+線形回帰問題の最小２乗法などの導出時
+
+```math
+\boldsymbol{y} = \boldsymbol{X} \boldsymbol{\beta} + \boldsymbol{\epsilon}
+\\
+\boldsymbol{X} \in \boldsymbol{R}^{(1+p) \times (1+p)}, \beta \in \boldsymbol{R}^{(1+p)}
+```
+
+```math
+\left[
+\begin{array}{c}
+y_1\\
+\vdots\\
+y_N
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+1 & x_{1,1} & \cdots & x_{1,p}\\
+\vdots\\
+1 & x_{N,1} & \cdots & x_{N,p}\\
+\end{array}
+\right]
+
+\left[
+\begin{array}{c}
+\beta_0\\
+\vdots\\
+\beta_p
+\end{array}
+\right]
++
+\left[
+\begin{array}{c}
+\epsilon_1\\
+\vdots\\
+\epsilon_N
+\end{array}
+\right]
 ```
 
 ## 証明
