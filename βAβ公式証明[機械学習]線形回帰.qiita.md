@@ -7,6 +7,17 @@
 \boldsymbol{A} \in \boldsymbol{R}^{(1+p) \times (1+p)}, \boldsymbol{\beta} \in \boldsymbol{R}^{(1+p)}
 ```
 
+>コメントで指摘を受けました通り、機械学習で実際に多く目にするのは以下のような形のものです。
+
+>```math
+\frac{\partial \left( {}^t \boldsymbol{\beta A \beta} \right) }{\partial \boldsymbol{\beta}}
+= 2 \boldsymbol{ A \beta}
+\tag{ただし、Aは対称行列}
+```
+
+>対称行列は転置行列が自身と同じ行列なのでこの形がすぐ導かれます。
+
+
 ## 登場シーン
 線形回帰問題の最小２乗法などの導出時
 
