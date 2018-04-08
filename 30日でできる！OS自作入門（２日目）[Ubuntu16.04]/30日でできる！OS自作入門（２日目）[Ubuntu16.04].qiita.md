@@ -1,28 +1,23 @@
 # [Ubuntu16.04] 30日でできる！OS自作入門（2日目）
 
 
-前後の記事
-- <a herf="https://qiita.com/pollenjp/items/a13cd764cc739a0ca9df">[Ubuntu16.04] 30日でできる！OS自作入門（１日目）</a>
+<a href="https://qiita.com/pollenjp/items/b7e4392d945b8aa4ff98">30日でできる！OS自作入門（記事一覧）[Ubuntu16.04/NASM]</a>
+
 
 # 目的
 "30日でできる！OS自作入門"の内容をUbuntu(Linux)で実行するには本の内容だけでは厳しいので調べた結果をメモ。（リンクと動作確認済みコード・コメント）
-本を読む上でLinuxを使う方の参考になればと思っております。
+
+![image.png](https://qiita-image-store.s3.amazonaws.com/0/195174/f19d798d-a943-c5a2-17a3-da10e56aee6c.png)
+
+このテキストを読む上でUbuntuとnasmを使う方の参考になればと思っております。
 Ubuntu 16.04 LTS
-
-# 参考
-先に参考を載せておきます。
-
-- <a href="http://tsurugidake.hatenablog.jp/entry/2017/08/15/202414">Linuxで書くOS自作入門 2日目 - Tsurugidake's diary</a>
-- <a href="http://lv4.hateblo.jp/entry/2011/10/15/100453">OS自作入門 onLinux 2日目 - Handwriting</a>
-- <a href="http://d.hatena.ne.jp/dorayakitaro/20090128/p1">LinuxでのOS自作入門～Chapter2（2日目）～ - どらや記</a>
-- <a href="https://syusui.tumblr.com/post/109777087853/30%E6%97%A5%E3%81%A7%E3%81%A7%E3%81%8D%E3%82%8Bos%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80%E3%82%92linux%E3%81%A7%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B-2%E6%97%A5%E7%9B%AE">Akitsushima Design — 『30日でできる！OS自作入門』をLinuxでやってみる 2日目</a>
-- <a href="http://elm-chan.org/docs/fat.html#bpb">ブート セクタとBPB</a>
-
 
 
 # helloos3
 - INT命令の際の参考サイトは移転していました：http://oswiki.osask.jp/?%28AT%29BIOS
 - memory mapの参考サイトも移転：http://oswiki.osask.jp/?%28AT%29memorymap
+
+> 0x00007c00 - 0x00007dff ： ブートセクタが読み込まれるアドレス
 
 ブートセクタ説明用のコードはもう少し下で掲載
 
@@ -30,7 +25,7 @@ Ubuntu 16.04 LTS
 ; hello-os
 ; TAB=4
 
-        ORG     0x7c00          ; このプログラムがメモリ上のどこによみこまれるのか
+        ORG     0x7c00          ; メモリ上の開始位置
 
 ; ディスクのための記述
 
@@ -139,7 +134,7 @@ msg:
         ORG     0x7c00          ; このプログラムがメモリ上のどこによみこまれるのか
 
 ; ディスクのための記述
-                                                    offset  byte
+;                                                   offset  byte
         JMP     entry           ; BS_JmpBoot        0
         DB      0x90            ; BS_JmpBoot                1
         DB      "HELLOIPL"      ; BS_OEMName        3       8
@@ -238,4 +233,14 @@ run :
 	make img
 	qemu-system-i386 helloos.img
 ```
+
+
+# 参考
+
+- <a href="http://tsurugidake.hatenablog.jp/entry/2017/08/15/202414">Linuxで書くOS自作入門 2日目 - Tsurugidake's diary</a>
+- <a href="http://lv4.hateblo.jp/entry/2011/10/15/100453">OS自作入門 onLinux 2日目 - Handwriting</a>
+- <a href="http://d.hatena.ne.jp/dorayakitaro/20090128/p1">LinuxでのOS自作入門～Chapter2（2日目）～ - どらや記</a>
+- <a href="https://syusui.tumblr.com/post/109777087853/30%E6%97%A5%E3%81%A7%E3%81%A7%E3%81%8D%E3%82%8Bos%E8%87%AA%E4%BD%9C%E5%85%A5%E9%96%80%E3%82%92linux%E3%81%A7%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B-2%E6%97%A5%E7%9B%AE">Akitsushima Design — 『30日でできる！OS自作入門』をLinuxでやってみる 2日目</a>
+- <a href="http://elm-chan.org/docs/fat.html#bpb">ブート セクタとBPB</a>
+- <a href="http://bttb.s1.valueserver.jp/wordpress/blog/2017/11/21/make-os2/">FAT12フォーマット | OS自作入門 2日目【Linux】</a>
 

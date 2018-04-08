@@ -1,6 +1,9 @@
 # [Ubuntu16.04] 30日でできる！OS自作入門（１日目）
 
 
+<a href="https://qiita.com/pollenjp/items/b7e4392d945b8aa4ff98">30日でできる！OS自作入門（記事一覧）[Ubuntu16.04/NASM]</a>
+
+
 
 # 目的
 "30日でできる！OS自作入門"の内容をUbuntu(Linux)で実行するには本の内容だけでは厳しいので調べた結果をメモ。
@@ -65,7 +68,7 @@ $ qemu-system-i386 helloos.img
 `disk`を検索して実行してUSBがどこに割り当てられているのかを確認
 ![image.png](https://qiita-image-store.s3.amazonaws.com/0/195174/da4fc1b3-13d3-e57d-4ae7-f8c3ef993e67.png)
 
-この場合は`sbd`ですね。
+この場合は`sdb`ですね。
 ![image.png](https://qiita-image-store.s3.amazonaws.com/0/195174/a99797ba-2124-cffa-9e0f-e464ca3f8584.png)
 
 
